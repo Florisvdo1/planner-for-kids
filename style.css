@@ -1,0 +1,607 @@
+/* Import the League Spartan font */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'League Spartan', Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: #87CEEB; /* Sky blue background */
+  position: relative;
+  min-height: 100vh;
+  -webkit-user-select: none; /* Disable text selection */
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+html {
+  -ms-touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 480px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
+}
+
+/* Disable Zooming */
+body {
+  touch-action: manipulation;
+}
+
+/* Background Container for Cloud Animation */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Cloud Rows */
+.cloud-row {
+  position: absolute;
+  width: 300%;
+  height: 33.33%;
+}
+
+.row1 {
+  top: 0;
+  animation: cloudMove1 60s linear infinite;
+}
+
+.row2 {
+  top: 33.33%;
+  animation: cloudMove2 80s linear infinite;
+}
+
+.row3 {
+  top: 66.66%;
+  animation: cloudMove1 70s linear infinite;
+}
+
+.cloud {
+  position: absolute;
+}
+
+.cloud1, .cloud4, .cloud7 {
+  width: 100px;
+  height: auto;
+}
+
+.cloud2, .cloud5, .cloud8 {
+  width: 150px;
+  height: auto;
+}
+
+.cloud3, .cloud6, .cloud9 {
+  width: 120px;
+  height: auto;
+}
+
+.cloud1 { left: 0%; }
+.cloud2 { left: 33%; }
+.cloud3 { left: 66%; }
+
+.cloud4 { right: 0%; }
+.cloud5 { right: 33%; }
+.cloud6 { right: 66%; }
+
+.cloud7 { left: 0%; }
+.cloud8 { left: 33%; }
+.cloud9 { left: 66%; }
+
+/* Cloud Animations */
+@keyframes cloudMove1 {
+  0% { transform: translateX(-100%) translateY(0); }
+  50% { transform: translateX(0%) translateY(-10px); }
+  100% { transform: translateX(100%) translateY(0); }
+}
+
+@keyframes cloudMove2 {
+  0% { transform: translateX(100%) translateY(0); }
+  50% { transform: translateX(0%) translateY(10px); }
+  100% { transform: translateX(-100%) translateY(0); }
+}
+
+/* How-To Overlay Screen */
+.how-to-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-to-content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.how-to-slide {
+  display: none;
+}
+
+.how-to-slide.active {
+  display: block;
+}
+
+.how-to-slide h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.how-to-slide p {
+  font-size: 1em;
+  color: #333;
+}
+
+.how-to-close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.how-to-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.how-to-dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.how-to-dots .dot.active {
+  background-color: #333;
+}
+
+/* Header Styles */
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+#header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+#live-time {
+  font-size: 1.2em;
+  color: #0000FF; /* Changed color to blue */
+  font-weight: bold;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.reset-label {
+  font-size: 0.9em;
+  color: #333;
+  margin-left: 5px;
+}
+
+/* Main Content Styling */
+main {
+  padding-top: 80px; /* Adjusted padding to bring content up */
+  padding-bottom: 10px;
+}
+
+.sectors-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reduced gap between sectors */
+  padding: 0 15px;
+}
+
+.sector {
+  background-color: rgba(255, 255, 255, 0.9); /* Increased contrast */
+  border: 1px solid #b3daff;
+  border-radius: 10px;
+  padding: 10px; /* Adjusted padding */
+  text-align: center;
+  position: relative;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+.sector-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.sector-header h2 {
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Emoji Placeholders */
+.emoji-placeholders {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+
+.emoji-placeholder {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border: 2px dashed #b3daff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+/* Huiswerk Button Section */
+.huiswerk-section {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.huiswerk-section p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.huiswerk-button {
+  background-color: #f44336; /* Red by default */
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Rounded edges */
+  padding: 8px 12px; /* Adjusted padding */
+  font-size: 1em; /* Adjusted font size */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.huiswerk-button.active {
+  background-color: #4CAF50; /* Green when active */
+}
+
+.huiswerk-button .thumb-animation {
+  animation: thumbsUp 2s forwards;
+}
+
+@keyframes thumbsUp {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+.huiswerk-button .huiswerk-text,
+.huiswerk-button .huiswerk-check {
+  display: inline-block;
+}
+
+/* Day Rating System */
+.day-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.day-rating p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.rating-button {
+  background-color: #d3eaff;
+  border: 2px solid #b3daff;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s, border-color 0.3s, background-color 0.3s;
+}
+
+.rating-button:hover {
+  background-color: #a0c4ff;
+  border-color: #4CAF50;
+  transform: scale(1.05);
+}
+
+.rating-button.selected {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+/* Emoji Deck Styles */
+#emoji-deck {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 0;
+  width: 100%;
+  z-index: 900;
+  position: relative;
+}
+
+.deck-body {
+  max-height: none; /* Remove max-height to display all emojis */
+  overflow: hidden; /* Hide scroll bar */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Emoji Grid */
+.emoji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.emoji-item {
+  width: 35px;
+  height: 35px;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.1s;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.emoji-item:active {
+  transform: scale(1.1);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.navigation-buttons button,
+.navigation-buttons span {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: #d3eaff;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: #333;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #a0c4ff;
+  transform: scale(1.05);
+}
+
+#category-name {
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Align arrows and category name */
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button,
+#category-name {
+  margin: 0 5px;
+}
+
+/* Dragging Clone Styles */
+.dragging-clone {
+  opacity: 0.8;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.15); /* Enlarge by approximately 6px */
+  transition: transform 0.15s ease;
+}
+
+/* Placeholder Highlight */
+.emoji-placeholder.highlight {
+  background-color: #d3eaff;
+  border-color: #4CAF50;
+  transform: scale(1.05);
+}
+
+/* Flip Coin Animation for Logo */
+@keyframes flipCoin {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.logo.flip-animation {
+  animation: flipCoin 2s ease-in-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  /* Adjustments for mobile devices */
+  main {
+    padding-top: 70px;
+    padding-bottom: 10px;
+  }
+
+  .sector {
+    padding: 8px;
+  }
+
+  .huiswerk-button {
+    padding: 6px 10px;
+    font-size: 0.9em;
+  }
+
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-button img {
+    width: 25px;
+    height: 25px;
+  }
+
+  #live-time {
+    font-size: 1em;
+  }
+
+  .emoji-item,
+  .emoji-placeholder,
+  .rating-button {
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+  }
+
+  .nav-button {
+    width: 30px;
+    height: 30px;
+    font-size: 1.1em;
+  }
+
+  .sector-header h2 {
+    font-size: 0.9em;
+  }
+
+  .huiswerk-section p,
+  .day-rating p {
+    font-size: 0.9em;
+  }
+
+  .how-to-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .how-to-slide h2 {
+    font-size: 1.3em;
+  }
+
+  .how-to-slide p {
+    font-size: 0.9em;
+  }
+
+  .how-to-close-button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
+  .how-to-dots .dot {
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobiele Emoji Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Include Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Container for Cloud Animation -->
+  <div class="background-container">
+    <!-- Cloud Rows -->
+    <div class="cloud-row row1">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud1">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud2">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud3">
+    </div>
+    <div class="cloud-row row2">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud4">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud5">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud6">
+    </div>
+    <div class="cloud-row row3">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud7">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud8">
+      <img src="images/cloud.svg" alt="Cloud" class="cloud cloud9">
+    </div>
+  </div>
+
+  <!-- How-To Overlay Screen -->
+  <div id="how-to-overlay" class="how-to-overlay">
+    <div class="how-to-content">
+      <div class="how-to-slide active">
+        <h2>Hoe gebruik je de Emoji Planner?</h2>
+        <p>Sleep en zet emoji's uit het Emoji Deck in de plaatsvakken van Ochtend, Middag en Avond.</p>
+      </div>
+      <div class="how-to-slide">
+        <h2>Geef je dag een Emoji</h2>
+        <p>Kies een emoji die bij je dag past door erop te tikken.</p>
+      </div>
+      <div class="how-to-slide">
+        <h2>Huiswerk Button</h2>
+        <p>Heb je je huiswerk af? Tik op de Huiswerk knop om het af te vinken.</p>
+      </div>
+      <button id="how-to-close" class="how-to-close-button">Klaar</button>
+      <!-- Navigation Dots -->
+      <div class="how-to-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <div id="header-container">
+      <!-- Left Side: Live Time -->
+      <div class="header-left">
+        <span id="live-time">--:--:--</span>
+      </div>
+      <!-- Center: Logo -->
+      <div class="header-center">
+        <img src="images/logo.svg" alt="Emoji Dagplanner Logo" class="logo" id="header-logo">
+      </div>
+      <!-- Right Side: Reset Button -->
+      <div class="header-right">
+        <div class="icon-container">
+          <button id="reset-button" class="icon-button" aria-label="Reset Planner">
+            <img src="images/reset-icon.png" alt="Reset Icon">
+            <span class="reset-label">Reset Planner</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="sectors-container">
+      <!-- Ochtend Sector -->
+      <div class="sector" id="ochtend-sector">
+        <div class="sector-header">
+          <h2>Ochtend</h2>
+        </div>
+        <div class="emoji-placeholders">
+          <!-- Regular Placeholders -->
+          <div class="emoji-placeholder" data-time="ochtend"></div>
+          <div class="emoji-placeholder" data-time="ochtend"></div>
+          <div class="emoji-placeholder" data-time="ochtend"></div>
+          <div class="emoji-placeholder" data-time="ochtend"></div>
+          <div class="emoji-placeholder" data-time="ochtend"></div>
+          <div class="emoji-placeholder" data-time="ochtend"></div>
+        </div>
+      </div>
+
+      <!-- Middag Sector -->
+      <div class="sector" id="middag-sector">
+        <div class="sector-header">
+          <h2>Middag</h2>
+        </div>
+        <div class="emoji-placeholders">
+          <!-- Regular Placeholders -->
+          <div class="emoji-placeholder" data-time="middag"></div>
+          <div class="emoji-placeholder" data-time="middag"></div>
+          <div class="emoji-placeholder" data-time="middag"></div>
+          <div class="emoji-placeholder" data-time="middag"></div>
+          <div class="emoji-placeholder" data-time="middag"></div>
+          <div class="emoji-placeholder" data-time="middag"></div>
+        </div>
+      </div>
+
+      <!-- Avond Sector -->
+      <div class="sector" id="avond-sector">
+        <div class="sector-header">
+          <h2>Avond</h2>
+        </div>
+        <div class="emoji-placeholders">
+          <!-- Regular Placeholders -->
+          <div class="emoji-placeholder" data-time="avond"></div>
+          <div class="emoji-placeholder" data-time="avond"></div>
+          <div class="emoji-placeholder" data-time="avond"></div>
+          <div class="emoji-placeholder" data-time="avond"></div>
+          <div class="emoji-placeholder" data-time="avond"></div>
+          <div class="emoji-placeholder" data-time="avond"></div>
+        </div>
+      </div>
+
+      <!-- Huiswerk Button Section -->
+      <div class="huiswerk-section">
+        <p>Huiswerk gedaan? Vink 'm af</p>
+        <button class="huiswerk-button" aria-label="Huiswerk Button">
+          <span class="huiswerk-text">Huiswerk</span>
+          <span class="huiswerk-check">✔️</span>
+        </button>
+      </div>
+
+      <!-- Day Rating System -->
+      <div class="day-rating">
+        <p>Geef je dag een emoji:</p>
+        <div class="rating-buttons" id="rating-buttons">
+          <button class="rating-button" data-rating="1" aria-label="Rate 1">😱</button>
+          <button class="rating-button" data-rating="2" aria-label="Rate 2">😕</button>
+          <button class="rating-button" data-rating="3" aria-label="Rate 3">😐</button>
+          <button class="rating-button" data-rating="4" aria-label="Rate 4">🙂</button>
+          <button class="rating-button" data-rating="5" aria-label="Rate 5">😄</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emoji Deck Section -->
+    <div id="emoji-deck" class="emoji-deck">
+      <div class="deck-body">
+        <!-- Emoji Grid -->
+        <div id="emoji-grid" class="emoji-grid"></div>
+        <!-- Navigation Buttons for Categories -->
+        <div class="navigation-buttons">
+          <button id="prev-category" class="nav-button" aria-label="Vorige categorie">◀️</button>
+          <span id="category-name">Activiteiten</span>
+          <button id="next-category" class="nav-button" aria-label="Volgende categorie">▶️</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Link to the JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
